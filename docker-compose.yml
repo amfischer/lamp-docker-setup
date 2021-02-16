@@ -1,0 +1,51 @@
+version: "3.8"
+
+services:
+  www:
+    build:
+      args:
+        user: aaron
+        uid: 1000
+      context: .
+      dockerfile: php/Dockerfile
+    image: example/php
+    container_name: httpd
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./www:/var/www/test.local/
+      - ./docker/php/php.ini:/usr/local/etc/php/php.ini
+      - ./docker/httpd/vhosts:/etc/apache2/sites-enabled
+      - ./docker/httpd/logs:/var/log/apache2
+    env_file:
+      - .env
+    environment:
+      PMA_PORT: "8080"
+      MYSQL_ROOT_PASSWORD: test
+    networks:
+      - app-network
+
+  db:
+    image: mysql:5.7
+    container_name: mysql
+    restart: always
+    ports:
+      - "3306:3306"
+    volumes:
+      - dbdata:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: test
+    networks:
+      - app-network
+
+#Docker Networks
+networks:
+  app-network:
+    driver: bridge
+
+#Docker Volumes
+volumes:
+  dbdata:
+    driver: local
