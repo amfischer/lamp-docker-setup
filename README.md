@@ -17,3 +17,8 @@
  - `docker-compose exec db bash`
  - `cd /seed && gzip -d report.sql.gz`
  - `mysql -uroot -p app < report.sql`
+
+
+### latest wordpress
+ - `curl -O https://wordpress.org/latest.tar.gz`
+ - `tar xzvf <.tar.gz file>`
