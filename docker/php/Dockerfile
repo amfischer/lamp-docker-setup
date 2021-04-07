@@ -67,7 +67,4 @@ RUN touch /var/log/xdebug.log \
     && chown $user:$user /var/log/xdebug.log \
     && chmod 755 /var/log/xdebug.log
 
-# Set working directory
-WORKDIR /var/www/example.test
-
 USER $user

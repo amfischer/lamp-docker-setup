@@ -20,6 +20,7 @@ services:
       - ./docker/php/php.ini:/usr/local/etc/php/php.ini
       - ./docker/httpd/vhosts:/etc/apache2/sites-enabled
       - ./docker/httpd/logs:/var/log/apache2
+    working_dir: /var/www/domain.example
     env_file:
       - .env
     environment:
