@@ -25,3 +25,4 @@
 ### latest wordpress
  - `curl -O https://wordpress.org/latest.tar.gz`
  - `tar xzvf <.tar.gz file>`
+ - [docker compose setup with wordpress image](https://mklasen.com/adding-and-using-wp-cli-in-a-docker-compose-setup/)
