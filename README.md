@@ -21,6 +21,10 @@
  - One-liner
    - `zcat report.sql.gz | mysql -uroot -p app`
 
+### mysqldump and create zipped file
+- [commands reference](https://fixyacloud.wordpress.com/2020/01/26/mysqldump-to-a-tar-gz/)
+- `scp <user>@<ip-address>:/home/forge/mz.sql.gz /home/aaron/projects/mz.sql.gz`
+
 
 ### latest wordpress
  - `curl -O https://wordpress.org/latest.tar.gz`
